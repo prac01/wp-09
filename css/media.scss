@@ -1,0 +1,51 @@
+$phone-sm: 400px;
+$pricing: 480px;
+$phone: 550px;
+$feats: 600px;
+$tab1: 750px;
+$tablet: 768px;
+$hide-nav: 800px;
+$banner: 991px;
+
+
+@mixin banner {
+    @media only screen and (max-width: #{$banner}) {
+        @content;
+    }
+}
+@mixin hide-nav  {
+    @media only screen and (max-width: #{$hide-nav}) {
+        @content;
+    }
+}
+@mixin tab1 {
+    @media only screen and (max-width: #{$tab1}) {
+        @content;
+    }
+}
+@mixin feats {
+    @media only screen and (max-width: #{$feats}) {
+        @content;
+    }
+}
+@mixin tablet {
+    @media only screen and (max-width: #{$tablet}) {
+        @content;
+    }
+}
+@mixin pricing {
+    @media only screen and (max-width: #{$pricing}) {
+        @content;
+    }
+} 
+@mixin phone {
+    @media only screen and (max-width: #{$phone}) {
+        @content;
+    }
+} 
+@mixin phone-sm {
+    @media only screen and (max-width: #{$phone-sm}) {
+        @content;
+    }
+}
+

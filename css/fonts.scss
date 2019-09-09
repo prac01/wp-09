@@ -1,0 +1,50 @@
+/*******AVAILABLE FONTS ******/
+
+@font-face {
+    font-family: 'OpenSans-Semibold';
+    src: url("./fonts/OpenSans-Semibold.ttf") format("truetype");
+ }
+$OpenSans-Semibold: 'OpenSans-Semibold', sans-serif;
+
+@font-face {
+    font-family: 'Ubuntu-Regular';
+    src: url("./fonts/Ubuntu-R.ttf") format("truetype");
+ }
+$Ubuntu-Regular: 'Ubuntu-Regular', sans-serif;
+
+@font-face {
+    font-family: 'Ubuntu-Medium';
+    src: url("./fonts/Ubuntu-M.ttf") format("truetype");
+ }
+$Ubuntu-Medium: 'Ubuntu-Medium', sans-serif;
+
+@font-face {
+    font-family: 'Ubuntu-Bold';
+    src: url("./fonts/Ubuntu-B.ttf") format("truetype");
+ }
+$Ubuntu-Bold: 'Ubuntu-Bold', sans-serif;
+
+@font-face {
+    font-family: 'Ubuntu-BoldItalic';
+    src: url("./fonts/Ubuntu-BI.ttf") format("truetype");
+ }
+$Ubuntu-BoldItalic: 'Ubuntu-BoldItalic', sans-serif;
+
+@font-face {
+    font-family: 'FiraSans-SemiBold';
+    src: url("./fonts/FiraSans-SemiBold.otf") format("truetype");
+ }
+$FiraSans-SemiBold: 'FiraSans-SemiBold', sans-serif;
+
+@font-face {
+    font-family: 'FiraSans-Regular';
+    src: url("./fonts/FiraSans-Regular.otf") format("truetype");
+ }
+$FiraSans-Regular: 'FiraSans-Regular', sans-serif;
+
+@font-face {
+    font-family: 'FiraSans-Bold';
+    src: url("./fonts/FiraSans-Bold.otf") format("truetype");
+ }
+$FiraSans-Bold: 'FiraSans-Bold', sans-serif;
+

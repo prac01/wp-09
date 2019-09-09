@@ -1,0 +1,1044 @@
+@import "css/fonts";
+@import "css/media";
+
+$colors:(
+    primary: #284b9a,
+    secondary:#cb3b89,
+    pricing: #672fab,
+    primary-light: lighten(#284b9a, 40%),
+    primary-dark: darken(#284b9a, 40%),
+    secondary-light: lighten(#cb3b89, 20%),
+    secondary-dark: darken(#cb3b89, 40%),
+);
+
+@function color($color-name) {
+    @return map-get($colors, $color-name)
+}
+
+*  {
+    box-sizing:border-box;
+}
+
+body {
+    font-family: $FiraSans-Regular;
+    padding: 0;
+    margin:0;
+
+}
+ul li {margin:0; padding:0; list-style: none;}
+a {text-decoration: none;}
+h1,h2,h3,h4,h5 {margin:0; padding:0; list-style: none;}
+p {line-height: 1.5;}
+#clear{clear:both;}
+.wrapper {
+    width:100%;
+    position:relative;
+    overflow: hidden;
+    header {
+        z-index:10;
+        position:fixed;
+        width:100%;
+        padding:10px;
+        top:0;
+    left:0;
+    right:0;
+        margin-bottom:10px;
+        .navigation {
+            max-width:1200px;
+            margin:0 auto;
+            padding-top:10px;
+            padding-bottom:10px;
+            height:50px;
+            line-height: 50px;
+            @include hide-nav {
+                height:100%;
+                line-height: 100%;
+            }
+            .logo {
+                float:left;
+                padding:10px;
+                @include hide-nav {
+                    float: none;
+                }
+            } 
+            .navbar { 
+                float:right;
+                @include hide-nav {
+                    display:none;
+                    width:100%;
+                    float:none;
+                    background-color:#fff;
+                    padding-top:10px;
+                    padding-bottom:10px;
+                    border-top:1px solid #ccc;
+                    margin-top:10px;
+                }
+                ul {margin:0; padding:0;}
+                ul li {
+                    float:left;
+                    margin-left:10px; 
+                    @include hide-nav {
+                        float:none;
+                        width:97%;
+                    }    
+                    @include phone {
+                        float:none;
+                        width:94%;
+                    }                                      
+                }
+                ul li a {
+                    color:#fff; 
+                    font-family:$FiraSans-SemiBold !important;
+                    display:block; 
+                    font-size:17px;  
+                    padding:5px 7px;
+                    @include hide-nav {
+                        float:none;
+                        padding:14px 10px;
+                        display: block;
+                        color:#284b9a !important;
+                    }            
+                }
+                ul li a:hover {
+                    text-decoration:underline;
+                    @include hide-nav {                 
+                        display: block;
+                        background-color:#f1f1f1;
+                    } 
+                }
+            }
+            .navbar.active {
+                display:block;  
+                                         
+            }
+        }
+    }
+    .banner {
+        background-image:url(img/banner.png);        
+        background-repeat: no-repeat;
+        background-size:cover;
+        
+        position: relative;
+        width:100%;
+        height:100%;
+        min-height: 750px;
+        z-index:1;
+        @include tab1 {
+            /*background: linear-gradient(45deg, rgba(39,74,152,1) 4%,rgba(202,58,137,1) 82%,rgba(202,58,137,1) 82%);*/ 
+        }
+        #wave {
+            position: absolute;
+            width:100%;
+            bottom:0; 
+            z-index:-1;
+
+        }
+        .svg-1 { 
+            @include banner {
+                display:none;
+            }
+        }
+        .svg-2 {
+            display:none;
+            z-index:-1;
+            @include banner {
+                display:block;
+            }         
+        }  
+        .banner-content {
+            max-width:1200px;
+            margin:0 auto;
+            padding: 10px;          
+            height: 100%;
+            display:grid;
+            grid-template-columns:2fr 1fr;
+            grid-gap:1em;
+            @include tab1 {
+                grid-template-columns:1fr;
+            }
+            .content-1 {
+                padding-top:260px;
+                padding-bottom:30px;
+                padding-left:10px;
+                padding-right:10px;
+                @include hide-nav {
+                    padding-top:200px;
+                }               
+                @include tab1 {
+                    text-align:center;
+                    padding-top:160px;
+                }
+                @include phone-sm {
+                    padding-top:130px;
+                }
+                h1 {
+                    font-family:$FiraSans-SemiBold;
+                    font-size:54px;
+                    color:#fff;
+                    margin:0;
+                    text-shadow:0px 2px 3px #363636;
+                    @include phone-sm {
+                        font-size:45px;                    
+                    }
+                }
+                p {
+                    font-size: 34px;
+                    font-family: $FiraSans-Regular;
+                    margin:0;
+                    color:#fff;
+                    margin-bottom:50px;
+                    text-shadow:0px 1px 3px #363636;
+                    @include phone-sm {
+                        font-size:26px;                    
+                    }
+                }
+                
+                .btn-1 {
+                    color:#5774b9;
+                    font-family:$OpenSans-Semibold;
+                    font-size: 18px;
+                    background-color:#fff;
+                    padding: 15px 38px;
+                    border:2px solid #fff;
+                    border-radius:4px;                    
+                    z-index:30;
+                    transition: all .2s ease;
+                    @include phone-sm {
+                        display: block; 
+                        margin-bottom:10px;                      
+                    }
+                }
+                .btn-1:hover {
+                    background-color:transparent;
+                    border:2px solid #fff;
+                    color:#fff;
+                   
+                }
+                .btn-2 {
+                    color:#fff;
+                    font-family:$OpenSans-Semibold;
+                    font-size: 18px;
+                    padding: 15px 40px;
+                    border-radius:4px;
+                    border:2px solid #fff;
+                    z-index:30;
+                    transition: all .2s ease;
+                    @include phone-sm {
+                        display: block;
+                        margin-bottom:10px;                       
+                    }
+                }
+                .btn-2:hover {
+                    background-color:#fff;
+                    color:#5774b9;
+                }
+            }
+            .content-2 {
+                padding-top:150px;
+                text-align: right;
+                animation-duration: 6s;
+                @include tab1 {
+                    padding-top:50px;
+                    text-align: center;
+                }
+                img {
+                    width:290px;                   
+                    @include phone-sm {
+                        width:80%;                     
+                    }
+                }
+            }
+            
+        }     
+    }
+    .features {
+        width:100%;
+        padding:85px 10px 110px 10px;
+        .feature-contents {
+            max-width:1200px;
+            margin:0 auto;
+            padding:10px;
+            .feature-heading {
+                width:100%;
+                outline:0;
+                h2 {
+                    font-family: $Ubuntu-Bold;
+                    font-size:30px;
+                    color:#333;
+                }
+                .hr-line {
+                    background: linear-gradient(to right, #f4a26e, #dd3839, #f4a26e);
+                    height:3px;
+                    width:30%;
+                    margin-top:23px;
+                    @include tab1 {
+                        width:50%;
+                    }
+                    @include phone-sm {
+                        width:80%;
+                    }
+                }
+                .para-1 {
+                    font-size:16px;
+                    font-family: $Ubuntu-Regular;
+                    padding:26px 17%;
+                    @include feats {
+                        padding:26px 11%;
+                    }
+                    @include pricing {
+                        padding:26px 4%;
+                    }
+                }
+            }
+            .feature-grid {
+                display: grid;
+                grid-template-columns: 1fr 2fr 1fr;
+                grid-gap:.6em; 
+                transition:all .4s ease;
+                text-align: center;
+                margin-top:130px;
+                @include tab1 {
+                    grid-template-columns: 1fr;
+                    grid-gap:1em; 
+                }
+                .feat-1 {
+                    margin-top:32%;
+                    @include hide-nav {
+                        margin-top:0%;
+                    }
+                    
+                }
+                .feat-2 {
+                    margin-top:70%;
+                    @include hide-nav {
+                        margin-top:20%;
+                    }
+                    
+                }
+                .feat-3 {
+                    margin-top:32%;
+                    @include hide-nav {
+                        margin-top:0%;
+                    }
+                    
+                }
+                .feat-4 {
+                    margin-top:70%;
+                    @include hide-nav {
+                        margin-top:20%;
+                    }
+                   
+                }
+                .circle {
+                    padding: 44px 10px;
+                    width:165px;
+                    margin:0 auto;
+                    margin-bottom:50px;
+                    background-color:#f0f0f0;
+                    border-radius:50%;
+                    box-shadow:0px 0px 23px 1px #c1c1c1;
+                    @include hide-nav {
+                        padding: 44px 10px;
+                        
+                    }
+                }
+                .grid-2 {
+                    @include feats {
+                        margin-top:40px;
+                        margin-bottom:40px;
+                    }
+                }
+                .grid-2 .main-feat {
+                    width:100%;
+                    @include tablet {
+                        max-width: 400px;
+                    }
+                    @include feats {
+                        max-width: 280px;
+                    }
+                }
+                h4 {
+                    font-size: 20px;
+                    font-family: $Ubuntu-Medium;
+                    font-weight:500;
+                    color:#333;
+                }
+                p {
+                    font-family: $Ubuntu-Regular;
+                    color:#333;
+                    padding:1% 14%;
+                }
+            }
+        }
+    }
+
+
+    .how-it-works {
+        width:100%;
+        background-image:url(img/bg-1.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top center;
+        padding-bottom:65px;
+
+        .how-content {
+            max-width:1200px;
+            margin:0 auto;
+            padding:10px;
+            text-align: center;
+            h2 {
+                font-size:30px;
+                color:#fff; 
+                font-family:$Ubuntu-Bold;
+                text-transform: uppercase;
+                margin-bottom:50px;
+            }
+            p { 
+                color:#fff;
+                padding:10px 8%;
+                font-family:$Ubuntu-Regular;
+                font-size: 16px;
+            }
+        }
+    }
+    .how-it-works::before {
+        content: "";
+        display: block;
+        height: 85px;
+      }
+
+    .app-screen {
+        width:100%;
+        padding-bottom:120px;
+        .screen-content {
+            max-width:1200px;
+            margin:0 auto;
+            padding:10px 15px;
+            .screen-heading {
+                width:100%;
+                outline:0;
+                h2 {
+                    font-family: $Ubuntu-Bold;
+                    font-size:30px;
+                    color:#333;
+                    text-transform: uppercase;
+                }
+                .hr-line {
+                    background: linear-gradient(to right, #f4a26e, #dd3839, #f4a26e);
+                    height:3px;
+                    width:30%;
+                    margin-top:23px;
+                    @include tab1 {
+                        width:50%;
+                    }
+                    @include phone-sm {
+                        width:80%;
+                    }
+                }
+                .para-2 {
+                    font-size:16px;
+                    font-family: $Ubuntu-Regular;
+                    padding:26px 17%;
+                    @include feats {
+                        padding:26px 11%;
+                    }
+                    @include pricing {
+                        padding:26px 4%;
+                    }
+                }
+            }
+            .app-items {
+                margin-top:90px;
+                text-align: center;
+                display:grid;
+                grid-template-columns:repeat(4, 1fr);
+                grid-gap: 1em;
+                align-content: center;
+                align-items: center;
+                @include tab1 {
+                    grid-template-columns:repeat(2, 1fr);
+                }
+                @include phone-sm {
+                    grid-template-columns: 1fr;
+                }
+                img {
+                    width:100%;
+                }
+            }
+        }
+    }
+    .app-screen::before {
+        content: "";
+        display: block;
+        height: 85px;
+      }
+
+    .pricing {
+        width:100%;
+        padding-bottom:110px;
+        background-image:url(img/pricing-wall.png);
+        background-repeat: no-repeat;
+        background-size:cover;
+        
+        .pricing-content {
+            max-width: 1200px;
+            margin:0 auto;
+            padding:10px 15px;
+            text-align: center;
+            h2 {
+                color:#fff;
+                font-family: $Ubuntu-Bold;
+                font-size:30px;
+            }
+            .para-3 {
+                font-family:$Ubuntu-Regular;
+                color:#fff;
+                font-size: 16px;
+                padding:26px 17%;
+                @include tab1 {
+                    padding:26px 8%;
+                }
+            }
+            .price-item {
+                margin-top:80px;
+                display:grid;
+                grid-template-columns:repeat(3, 1fr);
+                grid-gap:1.5em;
+                @include tablet {
+                    grid-gap:1em;
+                }
+                @include tab1 {
+                    grid-template-columns:repeat(2, 1fr);
+                }
+                @include pricing {
+                    grid-template-columns:1fr;
+                    grid-gap:1em;
+                }
+                .price-1 {
+                    text-align:center;
+                    background: linear-gradient(to bottom, #363535, #101010);
+                    padding:50px 10px 70px 10px;
+                    box-shadow:0px 0px 14px 1px #414141;
+                    h2 {
+                        font-family:$FiraSans-Bold;
+                        font-size: 30px;
+                        color:#fff;
+                        margin-bottom:15px;
+                    }
+                    h1 {
+                        font-family:$FiraSans-Bold;
+                        font-size: 67px;
+                        color:#fff;                       
+                        .dollar {
+                            font-size: 16px;
+                            color:#fff;
+                            font-family: $FiraSans-Regular;
+                            vertical-align: super; 
+                            padding-right: 8px;
+                        }
+                        .month {
+                            font-size: 16px;
+                            color:#fff;
+                            font-family: $FiraSans-Regular;
+                            font-weight:400;
+                        }
+                    }
+                    .hr-line2 {
+                        background-color:#9d74b4;
+                        height:3px;
+                        width:42%;
+                    }
+                    .plan-contents {
+                        margin-top: 34px;
+                        p {
+                            font-family: $Ubuntu-Regular;
+                            font-size:16px;
+                            color:#fff;
+                            padding-top:6px;
+                        }
+                    }
+                    
+                    .btn-area {
+                        margin-top:57px;
+                        .plan-btn-1 {
+                            text-transform:uppercase;
+                            color:#fff;
+                            padding: 20px 38px;
+                            border:1px solid #9d74b4;
+                            border-radius:6px;
+                            transition: all .3s ease;              
+                        }
+                        .plan-btn-1:hover {
+                            background-color:#9d74b4;
+                            
+                        }
+                    }
+                }
+                .price-2 {
+                    text-align:center;
+                    background: linear-gradient(to bottom, #763cb7, #400d8c);
+                    padding:50px 10px 70px 10px;
+                    
+                    h2 {
+                        font-family:$FiraSans-Bold;
+                        font-size: 30px;
+                        color:#fff;
+                        margin-bottom:15px;
+                    }
+                    h1 {
+                        font-family:$FiraSans-Bold;
+                        font-size: 67px;
+                        color:#fff;                       
+                        .dollar {
+                            font-size: 16px;
+                            color:#fff;
+                            font-family: $FiraSans-Regular;
+                            vertical-align: super; 
+                            padding-right: 8px;
+                        }
+                        .month {
+                            font-size: 16px;
+                            color:#fff;
+                            font-family: $FiraSans-Regular;
+                            font-weight:400;
+                        }
+                    }
+                    .hr-line2 {
+                        background-color:#9d74b4;
+                        height:3px;
+                        width:42%;
+                    }
+                    .plan-contents {
+                        margin-top: 34px;
+                        p {
+                            font-family: $Ubuntu-Regular;
+                            font-size:16px;
+                            color:#fff;
+                            padding-top:6px;
+                        }
+                    }
+                    
+                    .btn-area {
+                        margin-top:57px;
+                        .plan-btn-1 {
+                            text-transform:uppercase;
+                            color:#fff;
+                            padding: 20px 38px;
+                            border:1px solid #9d74b4;
+                            border-radius:6px;
+                            transition: all .3s ease;              
+                        }
+                        .plan-btn-1:hover {
+                            background-color:#9d74b4;
+                            
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .pricing::before {
+        content: "";
+        display: block;
+        height: 85px;
+      }
+    .user-info {
+        width:100%;
+        padding:120px 10px 120px 10px;
+        .user-content {
+            max-width:1200px;
+            margin:0 auto;
+            padding:10px;
+            display:grid;
+            grid-template-columns:1fr 0.8fr;
+            grid-gap:1em;
+            @include tab1 {
+                grid-template-columns:1fr;
+                text-align: center;
+            }
+            .user-left {               
+                img {
+                    max-width: 543px;
+                    @include banner {
+                        width:100%;
+                    }
+                }
+            }
+            .user-right {
+                h1 {
+                    font-size:40px;
+                    font-family: $FiraSans-Bold;
+                    color:#333;
+                    padding-top:50px;
+                    margin-bottom: 30px;
+                    @include banner {
+                        padding-top:10px;
+                    }
+                    
+                }
+                p {
+                    font-family: $Ubuntu-Regular;
+                    font-size:16px;
+                    color:#333;
+                    line-height: 1.5;
+                }
+            }
+        }
+    }
+    .the-team {
+        width:100%;
+        padding-bottom: 150px;
+        .team-content {
+            max-width:1200px;
+            margin:0 auto;
+            padding:10px;
+            .team-heading {
+                width:100%;
+                outline:0;
+                h2 {
+                    font-family: $Ubuntu-Bold;
+                    font-size:30px;
+                    color:#333;
+                    text-transform: uppercase;
+                }
+                .hr-line {
+                    background: linear-gradient(to right, #f4a26e, #dd3839, #f4a26e);
+                    height:3px;
+                    width:30%;
+                    margin-top:23px;
+                    @include tab1 {
+                        width:50%;
+                    }
+                    @include phone-sm {
+                        width:80%;
+                    }
+                }
+                .para-2 {
+                    font-size:16px;
+                    font-family: $Ubuntu-Regular;
+                    padding:26px 17%;
+                    @include feats {
+                        padding:26px 11%;
+                    }
+                    @include pricing {
+                        padding:26px 4%;
+                    }
+                }
+            }
+            .team-members {
+                display: grid;
+                grid-template-columns:repeat(4, 1fr);
+                grid-gap:1em;
+                margin-top:70px;
+                align-content: center;
+                align-items: center;
+                text-align: center;
+                @include tab1 {
+                    grid-template-columns:repeat(2, 1fr);
+                }
+                @include phone-sm {
+                    grid-template-columns:1fr;
+                    grid-gap:2em;
+                }
+                .frame {
+                    justify-self: center;
+                    overflow: hidden;
+                    max-width:276px;
+                    max-height:276px;
+                    border-radius:50%;
+                    position:relative;
+                    img {
+                        width:100%;
+                        height:100%;
+                        border-radius:50%;
+                        transition: all .4s ease;
+                    }
+                    img:hover {
+                        transform: scale(1.1);
+                    } 
+                    .overlay-img {
+                        position: absolute;
+                        top:0;
+                        left:0;
+                        bottom:0;
+                        right:0;
+                        height:100%;
+                        width:100%;
+                        opacity:0;
+                        transition:.5s ease;
+                        background:linear-gradient(45deg, rgba(203, 59, 137, 0.9) 26%, rgba(40, 75, 154, 0.9) 100%);
+                        border-radius:50%;
+                        .content-img {
+                            position: absolute;
+                            top:50%;
+                            left:50%;
+                            transform: translate(-50%,-50%);
+                            color:#fff;
+                            text-transform: uppercase;
+                            font-size:28px;
+                            width:100%;
+                            padding:20px;
+                            h3 {
+                                font-family:$Ubuntu-Bold;
+                                font-size: 23px;
+                                color:#fff;
+                                @include banner {
+                                    font-size: 20px;
+                                }
+                            } 
+                            p {
+                                font-family:$Ubuntu-Regular;
+                                font-size: 16px;
+                                color:#fff;
+                                @include banner {
+                                    font-size: 14px;
+                                }
+                            }               
+                        }
+                    }                      
+                }
+                .frame:hover .overlay-img, .frame:hover img {
+                    opacity:1;
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+    
+    .contact-us {
+        width:100%;
+        background-color: #f6f6f6;
+        
+        padding-bottom: 80px;
+        .contact-content {
+            max-width:1200px;
+            margin:0 auto;
+            padding:10px;
+            .contact-heading {
+                width:100%;
+                outline:0;
+                h2 {
+                    font-family: $Ubuntu-Bold;
+                    font-size:30px;
+                    color:#333;
+                    text-transform: uppercase;
+                }
+                .hr-line {
+                    background: linear-gradient(to right, #f4a26e, #dd3839, #f4a26e);
+                    height:3px;
+                    width:30%;
+                    margin-top:23px;
+                    @include tab1 {
+                        width:50%;
+                    }
+                    @include phone-sm {
+                        width:80%;
+                    }
+                }
+                .para-2 {
+                    font-size:16px;
+                    font-family: $Ubuntu-Regular;
+                    padding:26px 17%;
+                    @include feats {
+                        padding:26px 11%;
+                    }
+                    @include pricing {
+                        padding:26px 4%;
+                    }
+                }
+            }
+            form {
+                .input-area {
+                    margin-top:50px;
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    grid-gap:1em;
+                    @include phone-sm {
+                        grid-template-columns: 1fr;
+                    }
+                    .input {
+                        border:0;
+                        outline:0;
+                        border-bottom:2px solid #c2c2c2;
+                        color:#777777;
+                        font-family:$Ubuntu-Regular;
+                        background-color: transparent;
+                        width:100%;
+                        padding:10px 15px;
+                        font-size:16px;
+                    }
+                }
+                ::placeholder {
+                    color:#777777;
+                    font-family:$Ubuntu-Regular;
+                    font-size:16px;
+                }
+                .message {
+                    color:#777777;
+                    font-family:$Ubuntu-Regular;
+                    border:0;
+                    outline:0;
+                    border-bottom:2px solid #c2c2c2;
+                    background-color: transparent;
+                    display:block;
+                    width: 100%;
+                    padding:10px 15px;
+                    margin-bottom:90px;
+                    margin-top: 20px;
+                    height:230px;
+                    font-size:16px;
+                }
+                .send-btn {
+                    background: linear-gradient(to top, #400d8c, #763cb7);
+                    border:0;
+                    outline:0;
+                    font-size:26px;
+                    font-family:$Ubuntu-Regular;
+                    color:#fff;
+                    padding:15px 26px;
+                    border-radius:6px;
+                    transition: all .6s ease;
+                    cursor: pointer;
+                }
+                .send-btn:hover {
+                    background: linear-gradient(to top, #333, #666);
+                    transition: all .2s ease;
+                }
+                .send-btn:focus {
+                    background: linear-gradient(to top, #222, #444);
+                }
+            }
+        }
+    }
+    .contact-us::before {
+        content: "";
+        display: block;
+        height: 85px;
+      }
+    footer {
+        background-image:url(img/footer-bg.png);
+        background-size:cover;
+        background-repeat: no-repeat;
+        background-position: top center;
+        width:100%;
+        padding-top:57px;
+        padding-bottom: 57px;
+        .footer-content {
+            max-width:1200px;
+            padding:10px;
+            margin:0 auto;
+            display: grid;
+            grid-template-columns:2fr 1fr 1fr;
+            grid-gap:1em;
+            font-family: $Ubuntu-Regular;
+            @include feats {
+                grid-template-columns:1fr;
+            }
+            .footer-logo {
+                margin-bottom:23px;
+            }
+            .social-media {
+                margin-top:40px;
+                display:grid;
+                grid-template-columns:repeat(5, 1fr);
+                grid-gap:1em;
+                width:57%;
+                @include feats {
+                    margin: auto;
+                    margin-top:40px;
+                }
+                a {
+                    color:#fff;
+                    font-size:18px; 
+                    transition: all .3s ease;                        
+                }
+                a:hover {
+                    color:color(primary-light);
+                }
+            }
+            h2 {
+                font-family:$Ubuntu-Medium;
+                font-size:23px;
+                color:#fff;
+                margin-bottom:40px;
+            }
+            a {
+                color:#fff;
+                font-size: 16px;
+                font-family: $Ubuntu-Regular;
+                transition: all .3s ease; 
+            }
+            
+
+            p {
+                color:#fff;
+                transition: all .3s ease; 
+            }
+            .item-left {
+                @include feats {
+                    text-align: center;
+                }
+            }
+            .item-right {
+                justify-self: center;
+                @include feats {
+                    display:none;
+                }
+                p:hover, a:hover {
+                    transform: translateX(4px);
+                    color:color(secondary-light);    
+                }
+            }
+        }       
+    }
+    .copyright {
+        width:100%;
+        background-color:#161515;
+        padding: 26px 15px;
+        p {
+            color:#fff;
+            font-family: $Ubuntu-Regular;
+            font-size:16px;
+        }
+    }
+}
+
+
+.wrapper header .navigation .icon { 
+    display:none; 
+}
+.logo-2 {display:none;}
+
+
+/*******Media query 800px***************************/
+@media only screen and (max-width: 800px) {
+/**hamburger*/
+.wrapper header .navigation .icon{ display:block;position:absolute; top:47px; right:10px; -webkit-transform: translate(-50%,-50%); transform: translate(-50%,-50%); width:26px;height:26px; cursor: pointer; z-index:99;
+}
+
+.hamburger{width:23px;height: 2px;background-color:#ccc;position:absolute; top:50%;left:50%;-webkit-transform: translate(-50%,-50%); transform: translate(-50%,-50%);  transition:.5s; -webkit-transition:.5s; z-index: 8px;}
+
+.hamburger:before,
+.hamburger:after {
+    content:'';
+    position:absolute;
+    width:30px;
+    height: 2px;
+    background-color:#ccc;
+    transition:.5s;
+-webkit-transition:.5s;
+-ms-transition:.5s;
+    z-index: 10;
+    left:0%;
+}
+.hamburger:before{
+    top:-9px;
+}
+.hamburger:after{
+    top:9px;
+}
+.icon.active .hamburger{background: rgba(0,0,0,0);box-shadow:none;}
+.icon.active .hamburger:before{top:0; transform:rotate(45deg); -webkit-transform:rotate(45deg);}
+.icon.active .hamburger:after{top:0; transform:rotate(135deg);-webkit-transform:rotate(135deg);}
+/*hamburger**/
+}/*end*/
