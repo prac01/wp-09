@@ -73,6 +73,10 @@ p {line-height: 1.5;}
                     border-top:1px solid #ccc;
                     margin-top:10px;
                 }
+                @include phone-1 {
+                    overflow-y: auto !important;
+                    height: 220px !important;
+                }
                 ul {margin:0; padding:0;}
                 ul li {
                     float:left;
@@ -108,9 +112,17 @@ p {line-height: 1.5;}
                 }
             }
             .navbar.active {
-                display:block;  
-                                         
+                display:block;        
             }
+            .navbar::-webkit-scrollbar {
+                width: 10px;
+            }
+            .navbar::-webkit-scrollbar-thumb {
+                width: 10px;
+                background-color:color(secondary);
+                border-radius: 10px;
+            }
+
         }
     }
     .banner {
